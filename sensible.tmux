@@ -113,7 +113,7 @@ main() {
 	# tmux 3.1
 	tmux set-option -as terminal-overrides ",xterm-256color:RGB"
 
-	# I don't think emacs key bindings in tmux command prompt (prefix + :) are better than vi keys
+	# I don't think emacs key bindings in tmux command prompt are better than vi keys
 	# tmux set-option -g status-keys emacs
 	# force Vi mode
 	# really you should export VISUAL or EDITOR environment variable, see manual
