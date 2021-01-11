@@ -99,13 +99,20 @@ main() {
 	fi
 
 	# upgrade $TERM, tmux 1.9
-	if option_value_not_changed "default-terminal" "screen"; then
-		tmux set-option -g default-terminal "screen-256color"
-	fi
+	# if option_value_not_changed "default-terminal" "screen"; then
+	# 	tmux set-option -g default-terminal "screen-256color"
+	# fi
+
 	# upgrade $TERM, tmux 2.0+
-	if server_option_value_not_changed "default-terminal" "screen"; then
-		tmux set-option -s default-terminal "screen-256color"
+	if server_option_value_not_changed "default-terminal" "tmux"; then
+		tmux set-option -s default-terminal "tmux-256color"
 	fi
+
+	# tmux >= 3.2
+	# tmux set-option -as terminal-features ",xterm-256color:RGB"
+
+	# tmux 3.1
+	tmux set-option -as terminal-overrides ",xterm-256color:RGB"
 
 	# I don't think emacs key bindings in tmux command prompt (prefix + :) are better than vi keys
 	# tmux set-option -g status-keys emacs
