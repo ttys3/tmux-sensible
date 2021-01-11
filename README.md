@@ -1,10 +1,21 @@
-# Tmux sensible
+# Tmux sensible 
 
 A set of tmux options that should be acceptable to everyone.
 
 Inspired by [vim-sensible](https://github.com/tpope/vim-sensible).
 
 Tested and working on Linux, OSX and Cygwin.
+
+### Difference
+
+what's the difference between `https://github.com/tmux-plugins/tmux-sensible` ?
+
+1. instead of force `emacs` key bindings, this one forced to `vi` key bindings
+2. extra feature ported from [Oh my tmux!](https://github.com/gpakosz/.tmux)
+
+- mouse mode toggle with `<prefix> m`
+- [maximize any pane to a new window with `<prefix> +`][maximize-pane]
+
 
 ### Principles
 
@@ -82,7 +93,7 @@ If prefix is `C-z`, above keys will be `C-z` and `z`... you get the idea.
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @plugin 'tmux-plugins/tmux-sensible'
+    set -g @plugin 'ttys3/tmux-sensible'
 
 Hit `prefix + I` to fetch the plugin and source it. That's it!
 
@@ -90,7 +101,7 @@ Hit `prefix + I` to fetch the plugin and source it. That's it!
 
 Clone the repo:
 
-    $ git clone https://github.com/tmux-plugins/tmux-sensible ~/clone/path
+    $ git clone https://github.com/ttys3/tmux-sensible ~/clone/path
 
 Add this line to the bottom of `.tmux.conf`:
 
