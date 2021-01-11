@@ -107,9 +107,12 @@ main() {
 		tmux set-option -s default-terminal "screen-256color"
 	fi
 
-	# emacs key bindings in tmux command prompt (prefix + :) are better than
-	# vi keys, even for vim users
-	tmux set-option -g status-keys emacs
+	# I don't think emacs key bindings in tmux command prompt (prefix + :) are better than vi keys
+	# tmux set-option -g status-keys emacs
+	# force Vi mode
+	# really you should export VISUAL or EDITOR environment variable, see manual
+	tmux set-option -g status-keys vi
+	tmux set-option -g mode-keys vi
 
 	# focus events enabled for terminals that support them
 	tmux set-option -g focus-events on
