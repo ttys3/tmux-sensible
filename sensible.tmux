@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # used to match output from `tmux list-keys`
 KEY_BINDING_REGEX="bind-key[[:space:]]\+\(-r[[:space:]]\+\)\?\(-T prefix[[:space:]]\+\)\?"
@@ -160,5 +160,20 @@ main() {
 			tmux source-file ~/.tmux.conf > /dev/null; \
 			tmux display-message "Sourced .tmux.conf!"'
 	fi
+
+	# pane navigation
+	tmux bind-key -D >swap-pane # swap current pane with the next one
+	tmux bind-key -U <swap-pane # swap current pane with the previous one
+
+	# maximize current pane
+	tmux bind-key + run-shell "$CURRENT_DIR/scripts/maximize_pane.sh #{session_name} #D"
+
+	# toggle mouse
+	tmux bind-key m run-shell "$CURRENT_DIR/scripts/toggle_mouse.sh"
+
+	# edit configuration
+	# copy from oh my tmux https://github.com/gpakosz/.tmux/blob/41af713ff786ae2ea38ec52f7d7ef258ccd9fb9c/.tmux.conf#L26
+	tmux bind-key e new-window -n "~/.tmux.conf" "\${EDITOR:-nvim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display \"~/.tmux.conf sourced\""
 }
+
 main
