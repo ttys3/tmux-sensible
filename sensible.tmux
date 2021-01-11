@@ -99,12 +99,11 @@ main() {
 	fi
 
 	# upgrade $TERM, tmux 1.9
-	# if option_value_not_changed "default-terminal" "screen"; then
-	# 	tmux set-option -g default-terminal "screen-256color"
-	# fi
-
+	if option_value_not_changed "default-terminal" "screen"; then
+		tmux set-option -g default-terminal "tmux-256color"
+	fi
 	# upgrade $TERM, tmux 2.0+
-	if server_option_value_not_changed "default-terminal" "tmux"; then
+	if server_option_value_not_changed "default-terminal" "screen"; then
 		tmux set-option -s default-terminal "tmux-256color"
 	fi
 
