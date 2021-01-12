@@ -1,4 +1,4 @@
-# Tmux sensible 
+# Tmux sensible
 
 A set of tmux options that should be acceptable to everyone.
 
@@ -14,7 +14,7 @@ what's the difference between `https://github.com/tmux-plugins/tmux-sensible` ?
 2. extra feature ported from [Oh my tmux!](https://github.com/gpakosz/.tmux)
 
 - mouse mode toggle with `<prefix> m`
-- [maximize any pane to a new window with `<prefix> +`][maximize-pane]
+- maximize any pane to a new window with `<prefix> +` [maximize-pane](https://pempek.net/articles/2013/04/14/maximizing-tmux-pane-new-window/)
 
 
 ### Principles
@@ -40,6 +40,7 @@ what's the difference between `https://github.com/tmux-plugins/tmux-sensible` ?
     set -g status-utf8 on
 
     # address vim mode switching delay (http://superuser.com/a/252717/65504)
+    # https://github.com/neovim/neovim/wiki/FAQ#esc-in-tmux-or-gnu-screen-is-delayed
     set -s escape-time 0
 
     # increase scrollback buffer size
