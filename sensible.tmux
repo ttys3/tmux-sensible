@@ -167,9 +167,12 @@ main() {
 			tmux display-message "Sourced .tmux.conf!"'
 	fi
 
-	# pane navigation
-	tmux bind-key -D >swap-pane # swap current pane with the next one
-	tmux bind-key -U <swap-pane # swap current pane with the previous one
+	# pane swap
+	tmux bind-key '>' swap-pane -D # swap current pane with the next one
+	tmux bind-key '<' swap-pane -U # swap current pane with the previous one
+
+	# new popup on current dir
+	tmux bind-key g run-shell "tmux popup -xC -yC -w140 -h40 -KER 'zsh' -d '#{pane_current_path}'"
 
 	# maximize current pane
 	tmux bind-key + run-shell "$CURRENT_DIR/scripts/maximize_pane.sh #{session_name} #D"
@@ -183,3 +186,5 @@ main() {
 }
 
 main
+
+# vim: set ft=sh ts=4 sw=4 tw=120 noet :
